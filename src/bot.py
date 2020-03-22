@@ -74,6 +74,7 @@ def main():
     json_data = {
         "chat_id": chat_id,
         "text": message,
+        'parse_mode': 'Markdown',
     }
 
     message_url = BOT_URL + 'sendMessage'
