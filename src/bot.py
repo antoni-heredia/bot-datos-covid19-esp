@@ -1,5 +1,4 @@
 from telegram.ext import Updater
-from config.auth import token
 from telegram.ext import CommandHandler
 import logging,csv
 import urllib.request
@@ -57,6 +56,7 @@ def comunidades(bot,update):
 if __name__ == '__main__':
     #Si se ejecuta en local
     if not 'HEROKU' in os.environ:
+        from config.auth import token
         updater = Updater(token)
     else:
         #Si esta desplegado en Heroku
