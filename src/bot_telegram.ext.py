@@ -1,7 +1,6 @@
 from telegram.ext import Updater
 from telegram.ext import CommandHandler
 import logging,csv
-import urllib.request
 import os
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
