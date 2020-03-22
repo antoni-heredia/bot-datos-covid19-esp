@@ -127,3 +127,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+#Para ignorar el auth.py donde se encuentra el token
+auth.py
