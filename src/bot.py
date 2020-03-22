@@ -59,7 +59,7 @@ def main():
 
 
     message = data['message']['text']
-    message.replace("/", "") 
+    message = message.replace("/", "") 
 
     if message == "start":
         message = start()

@@ -8,5 +8,10 @@ Para hacer funcionar el bot tendras que añadir el token del tuyo. Para ello cam
 /esp - Ofrece los datos generales de todo el estado
 /comunidades - Ofrece los datos por comunidades autónomas
 
-##Despliegue en Heroku
+## Despliegue en Heroku
 Para Heroku hay que crear una variable TOKEN donde se añadira el token de nuestro bot. Y una variable HEROKU para indicar que esta desplegado ahi. 
+
+## Tutoriales seguidos
+Al principio empece usando [este](https://medium.com/@goyoregalado/bots-de-telegram-en-python-134b964fcdf7), muy sencillo pero usaba las colas que proporciona Telegram, cosa que no me servia para desplegarlo en Heroku.
+
+Despues pase a [este](https://planetachatbot.com/telegram-bot-webhook-heroku-fa53c5d72081) que hace uso de los webhook de telegram, hacienndo posible el despliegue en Heroku.
