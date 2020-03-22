@@ -3,6 +3,7 @@ from config.auth import token
 from telegram.ext import CommandHandler
 import logging,csv
 import urllib.request
+import os
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 logger = logging.getLogger('Covid19-esp')
@@ -54,7 +55,13 @@ def comunidades(bot,update):
         parse_mode = "Markdown"
     )
 if __name__ == '__main__':
-    updater = Updater(token)
+    #Si se ejecuta en local
+    if not 'HEROKU' in os.environ:
+        updater = Updater(token)
+    else:
+        #Si esta desplegado en Heroku
+        updater = Updater(os.environ['TOKEN'])
+
     dispatcher = updater.dispatcher
 
     start_handler = CommandHandler('start', start)
