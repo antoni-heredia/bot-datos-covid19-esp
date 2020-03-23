@@ -32,11 +32,11 @@ def esp():
     
 def comunidades():
     logger.info('He recibido un comando comunidades')
-    mensaje = ""
+    mensaje = "*CCAA*-*Acumulados*-*Ult 24h*-*Incidencia*"
     with open('datos/ccaa.csv', newline='') as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
-            mensaje += "*"+row["﻿CCAA"]+":* "+row["Nº Casos"] + "\n"
+            mensaje += "*"+row["﻿CCAA"]+":* "+row["Acumulados"] + "-"+"24h"+"-"+"Incidencia"+ "\n"
     return mensaje
 
 # Add your telegram token as environment variable
