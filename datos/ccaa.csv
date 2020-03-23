@@ -1,20 +1,20 @@
-﻿CCAA,Nº Casos
-Andalucía,1725
-Aragón,532
-Asturias,545
-Baleares,331
-Canarias,414
-Cantabria,282
-Castilla La Mancha,1819
-Castilla y León,1744
-Cataluña,4704
-Ceuta,5
-C. Valenciana,1604
-Extremadura,384
-Galicia,915
-Madrid,9702
-Melilla,25
-Murcia,296
-Navarra,794
-País Vasco,2097
-La Rioja,654
+﻿CCAA,Acumulados,24h,Incidencia
+Andalucía,1961,210,22.66
+Aragón,638,108,47.37
+Asturias,594,59,57.39
+Baleares,400,85,33.84
+Canarias,481,66,21.32
+Cantabria,347,67,57.65
+Castilla La Mancha,2078,396,100.94
+Castilla y León,2055,278,84.68
+Cataluña,5925,501,76.22
+Ceuta,6,0,7.08
+C. Valenciana,1901,241,37.25
+Extremadura,493,30,45.52
+Galicia,1208,176,44.53
+Madrid,10575,781,151.66
+Melilla,28,0,32.37
+Murcia,345,56,22.83
+Navarra,886,130,134.97
+País Vasco,2421,372,102.91
+La Rioja,747,90,210.23
