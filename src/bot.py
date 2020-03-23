@@ -101,7 +101,7 @@ def main():
     elif message == "comunidades":
         message = comunidades()
         enviarMensaje(chat_id,message)
-    elif message == "comunidades":
+    elif message == "ultimopdf":
         fichero = ultimoPDF()
         enviarFichero(chat_id,fichero)
     else:
