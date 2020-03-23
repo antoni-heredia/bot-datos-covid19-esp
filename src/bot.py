@@ -40,6 +40,35 @@ def comunidades():
             mensaje += "*"+row["﻿CCAA"]+":* "+row["Acumulados"]+"-"+row["24h"]+"-"+row["Incidencia"]+"\n"
     return mensaje
 
+def ultimoPDF():
+    logger.info('He recibido un comando ultimopdf')
+
+    mayor = 0
+    for file in os.listdir(PDF_PATH):
+        numero = int(file.split("_")[1])
+        if(numero > mayor):
+            mayor = numero
+    fichero = PDF_PATH + "/Actualizacion_"+str(mayor)+"_COVID-19.pdf"
+    return fichero
+
+def enviarMensaje(chat_id,message):
+    json_data = {
+        "chat_id": chat_id,
+        "text": message,
+        'parse_mode': 'Markdown',
+    }
+
+    message_url = BOT_URL + 'sendMessage'
+    requests.post(message_url, json=json_data)
+
+def enviarFichero(chat_id,fichero):
+    json_data = {
+        "chat_id": chat_id,
+        'document': fichero,
+    }
+    message_url = BOT_URL + 'sendDocument'
+    requests.post(message_url, json=json_data)
+
 # Add your telegram token as environment variable
 if not 'HEROKU' in os.environ:
     from config.auth import token
@@ -48,6 +77,7 @@ else:
     #Si esta desplegado en Heroku
     BOT_URL = f'https://api.telegram.org/bot{os.environ["TOKEN"]}/'
 
+PDF_PATH = "./datos/actualizaciones_estado"
 
 app = Flask(__name__)
 
@@ -64,23 +94,19 @@ def main():
 
     if message == "start":
         message = start()
+        enviarMensaje(chat_id,message)
     elif message == "esp":
         message = esp()
+        enviarMensaje(chat_id,message)
     elif message == "comunidades":
         message = comunidades()
+        enviarMensaje(chat_id,message)
+    elif message == "comunidades":
+        fichero = ultimoPDF()
+        enviarFichero(chat_id,fichero)
     else:
         message = "Comando no soportado"
         
-        
-    json_data = {
-        "chat_id": chat_id,
-        "text": message,
-        'parse_mode': 'Markdown',
-    }
-
-    message_url = BOT_URL + 'sendMessage'
-    requests.post(message_url, json=json_data)
-
     return ''
 
 
