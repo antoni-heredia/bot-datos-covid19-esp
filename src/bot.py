@@ -106,7 +106,7 @@ def main():
         enviarFichero(chat_id,fichero)
     else:
         message = "Comando no soportado"
-        
+        enviarMensaje(chat_id,message) 
     return ''
 
 
