@@ -7,7 +7,7 @@ Para hacer funcionar el bot tendras que añadir el token del tuyo. Para ello cam
 /start - Inicia el bot y ofrece información inicial
 /esp - Ofrece los datos generales de todo el estado
 /comunidades - Ofrece los datos por comunidades autónomas
-/ultimo - Ofrece los datos por comunidades autónomas
+/ultimopdf - Ofrece el utlimo pdf ofrecido por el ministerio de sanidad
 
 ## Despliegue en Heroku
 Para Heroku hay que crear una variable TOKEN donde se añadira el token de nuestro bot. Y una variable HEROKU para indicar que esta desplegado ahi. 
