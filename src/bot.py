@@ -99,8 +99,7 @@ def main():
         message = comunidades()
         enviarMensaje(chat_id,message)
     elif message == "ultimopdf":
-        fichero = ultimoPDF()
-        enviarFichero(chat_id,fichero)
+        fichero = ultimoPDF(chat_id)
     else:
         message = "Comando no soportado"
         enviarMensaje(chat_id,message) 
