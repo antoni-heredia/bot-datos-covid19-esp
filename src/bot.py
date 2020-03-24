@@ -41,6 +41,15 @@ def comunidades():
             mensaje += "*"+row["﻿CCAA"]+":* "+row["Acumulados"]+"-"+row["Ultimas 24h"]+"-"+row["Incidencia"]+"\n"
     return mensaje
 
+def ultimoPDF():
+    pdf_path = "./datos/actualizaciones_estado"
+    mayor = 0
+    for file in os.listdir(pdf_path):
+        numero = int(file.split("_")[1])
+        if(numero > mayor):
+            mayor = numero
+    url = "https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov-China/documentos/Actualizacion_"+str(mayor)+"_COVID-19.pdf"
+    return url
 
 def enviarMensaje(chat_id,message):
     json_data = {
@@ -52,22 +61,16 @@ def enviarMensaje(chat_id,message):
     message_url = BOT_URL + 'sendMessage'
     requests.post(message_url, json=json_data)
 
-def ultimoPDF():
-    pdf_path = "./datos/actualizaciones_estado"
-    mayor = 0
-    for file in os.listdir(pdf_path):
-        numero = int(file.split("_")[1])
-        if(numero > mayor):
-            mayor = numero
-    url = "https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov-China/documentos/Actualizacion_"+str(mayor)+"_COVID-19.pdf"
-    return url
 
 def enviarDocumentoURL(chat_id,url):
     json_data = {
         "chat_id": chat_id,
         'document': url,
     }
+
+
     message_url = BOT_URL + 'sendDocument'
+    print(message_url)
     requests.post(message_url, json=json_data)
 
 # Add your telegram token as environment variable
@@ -103,7 +106,6 @@ def main():
         enviarMensaje(chat_id,message)
     elif message == "ultimopdf":
         url = ultimoPDF()
-        print(url)
         enviarDocumentoURL(chat_id,url)
     else:
         message = "Comando no soportado"
