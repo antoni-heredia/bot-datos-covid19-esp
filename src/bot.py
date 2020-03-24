@@ -38,7 +38,7 @@ def comunidades():
     with open('datos/ccaa.csv', newline='') as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
-            mensaje += "*"+row["﻿CCAA"]+":* "+row["Acumulados"]+"-"+row["24h"]+"-"+row["Incidencia"]+"\n"
+            mensaje += "*"+row["﻿CCAA"]+":* "+row["Acumulados"]+"-"+row["Ultimas 24h"]+"-"+row["Incidencia"]+"\n"
     return mensaje
 
 
