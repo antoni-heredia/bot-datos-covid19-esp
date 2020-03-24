@@ -40,16 +40,6 @@ def comunidades():
             mensaje += "*"+row["﻿CCAA"]+":* "+row["Acumulados"]+"-"+row["24h"]+"-"+row["Incidencia"]+"\n"
     return mensaje
 
-def ultimoPDF():
-    logger.info('He recibido un comando ultimopdf')
-
-    mayor = 0
-    for file in os.listdir(PDF_PATH):
-        numero = int(file.split("_")[1])
-        if(numero > mayor):
-            mayor = numero
-    fichero = PDF_PATH + "/Actualizacion_"+str(mayor)+"_COVID-19.pdf"
-    return fichero
 
 def enviarMensaje(chat_id,message):
     json_data = {
@@ -61,7 +51,7 @@ def enviarMensaje(chat_id,message):
     message_url = BOT_URL + 'sendMessage'
     requests.post(message_url, json=json_data)
 
-def enviarFichero(chat_id,fichero):
+def ultimoPDF(chat_id):
     pdf_path = "./datos/actualizaciones_estado"
     mayor = 0
     for file in os.listdir(pdf_path):
@@ -71,7 +61,7 @@ def enviarFichero(chat_id,fichero):
     url = "https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov-China/documentos/Actualizacion_"+str(mayor)+"_COVID-19.pdf"
     json_data = {
         "chat_id": chat_id,
-        'document': fichero,
+        'document': url,
     }
     message_url = BOT_URL + 'sendDocument'
     requests.post(message_url, json=json_data)
