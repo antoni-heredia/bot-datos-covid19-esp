@@ -89,7 +89,6 @@ def main():
 
     chat_id = data['message']['chat']['id']
 
-    print(data['message'])
     message = data['message']['text']
     message = message.replace("/", "") 
 
@@ -104,6 +103,7 @@ def main():
         enviarMensaje(chat_id,message)
     elif message == "ultimopdf":
         url = ultimoPDF()
+        print(url)
         enviarDocumentoURL(chat_id,url)
     else:
         message = "Comando no soportado"
