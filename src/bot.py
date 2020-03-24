@@ -89,7 +89,7 @@ def main():
 
     chat_id = data['message']['chat']['id']
 
-
+    print(data['message'])
     message = data['message']['text']
     message = message.replace("/", "") 
 
