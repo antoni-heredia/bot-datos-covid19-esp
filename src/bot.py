@@ -70,7 +70,7 @@ def enviarDocumentoURL(chat_id,url):
 
 
     message_url = BOT_URL + 'sendDocument'
-    print(message_url)
+    print(json_data)
     requests.post(message_url, json=json_data)
 
 # Add your telegram token as environment variable
