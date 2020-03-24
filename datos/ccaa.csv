@@ -1,20 +1,21 @@
-﻿CCAA,Acumulados,24h,Incidencia
-Andalucía,1961,210,22.66
-Aragón,638,108,47.37
-Asturias,594,59,57.39
-Baleares,400,85,33.84
-Canarias,481,66,21.32
-Cantabria,347,67,57.65
-Castilla La Mancha,2078,396,100.94
-Castilla y León,2055,278,84.68
-Cataluña,5925,501,76.22
+﻿CCAA,Acumulados,Ultimas 24h,Incidencia
+Andalucía,2471,510,28.52
+Aragón,758,120,54.57
+Asturias,662,68,62.57
+Baleares,478,78,40.45
+Canarias,557,76,24.71
+Cantabria,425,78,71.07
+Castilla La Mancha,2465,387,119.34
+Castilla y León,2460,405,100.19
+Cataluña,7864,1939,100.84
 Ceuta,6,0,7.08
-C. Valenciana,1901,241,37.25
-Extremadura,493,30,45.52
-Galicia,1208,176,44.53
-Madrid,10575,781,151.66
+C. Valenciana,2167,266,42.31
+Extremadura,636,143,58.82
+Galicia,1415,207,51.60
+Madrid,12352,1777,173.64
 Melilla,28,0,32.37
-Murcia,345,56,22.83
-Navarra,886,130,134.97
-País Vasco,2421,372,102.91
-La Rioja,747,90,210.23
+Murcia,385,40,25.17
+Navarra,1014,128,153.16
+País Vasco,2728,307,114.73
+La Rioja,802,55,207.70
+

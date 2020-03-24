@@ -29,6 +29,7 @@ def esp():
             mensaje += "*Hospitalizados:* " + row['Hospitalizados'] + "\n"
             mensaje += "*Defunciones:* " + row['Defunciones'] + "\n"
             mensaje += "*Recuperados:* " + row['Recuperados'] + "\n"
+            mensaje += "*Casos24h:* " + row['Casos24h'] + "\n"
     return mensaje
     
 def comunidades():
@@ -51,7 +52,7 @@ def enviarMensaje(chat_id,message):
     message_url = BOT_URL + 'sendMessage'
     requests.post(message_url, json=json_data)
 
-def ultimoPDF(chat_id):
+def ultimoPDF():
     pdf_path = "./datos/actualizaciones_estado"
     mayor = 0
     for file in os.listdir(pdf_path):
@@ -59,6 +60,9 @@ def ultimoPDF(chat_id):
         if(numero > mayor):
             mayor = numero
     url = "https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov-China/documentos/Actualizacion_"+str(mayor)+"_COVID-19.pdf"
+    return url
+
+def enviarDocumentoURL(chat_id,url):
     json_data = {
         "chat_id": chat_id,
         'document': url,
@@ -99,7 +103,8 @@ def main():
         message = comunidades()
         enviarMensaje(chat_id,message)
     elif message == "ultimopdf":
-        fichero = ultimoPDF(chat_id)
+        url = ultimoPDF()
+        enviarDocumentoURL(chat_id,url)
     else:
         message = "Comando no soportado"
         enviarMensaje(chat_id,message) 
