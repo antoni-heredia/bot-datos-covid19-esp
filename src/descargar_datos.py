@@ -41,7 +41,8 @@ def timed_job():
     url = "https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov-China/documentos/Actualizacion_"+str(mayor)+"_COVID-19.pdf"
     r = requests.get(url, verify=False)
     if r.status_code == 200:
-        with open(pdf_path+"/Actualizacion_"+str(mayor)+"_COVID-19.pdf", 'wb') as f:
-                f.write(r.content)
+        os.remove(pdf_path+"/ultimo_"+str(mayor-1))
+        with open(pdf_path+"/ultimo_"+str(mayor), 'w') as fp: 
+            pass
 
 sched.start()

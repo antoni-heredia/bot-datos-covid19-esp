@@ -62,6 +62,13 @@ def enviarMensaje(chat_id,message):
     requests.post(message_url, json=json_data)
 
 def enviarFichero(chat_id,fichero):
+    pdf_path = "./datos/actualizaciones_estado"
+    mayor = 0
+    for file in os.listdir(pdf_path):
+        numero = int(file.split("_")[1])
+        if(numero > mayor):
+            mayor = numero
+    url = "https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov-China/documentos/Actualizacion_"+str(mayor)+"_COVID-19.pdf"
     json_data = {
         "chat_id": chat_id,
         'document': fichero,
